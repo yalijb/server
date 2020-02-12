@@ -3,7 +3,7 @@ var cors = require('cors');
 const greet = require('./greet.js');
 
 class GreetingService {
-  constructor(greeting = 'Helo') {
+  constructor(greeting = 'Hello') {
   this.greeting = greeting;
   }
   createGreeting(name) {
@@ -21,19 +21,19 @@ app.use(cors());
 // get ip infos even if passing through a proxy like here
 app.enable('trust proxy'); 
 
-app.route(`${process.env.PUBLIC_URL}/`)
+app.route(`/`)
     .get(function (request, response){
     response.send('Hello world')
 });
 
-app.route(`${process.env.PUBLIC_URL}/ip`)
+app.route(`/ip`)
   .get(function(req, res){
     res.setHeader("x-Hello-World", "YG");
 
     res.json({ipaddress: req.ip});
   });
 
-app.use(`${process.env.PUBLIC_URL}/name`, greet({
+app.use(`/name`, greet({
     service: new GreetingService('Hello'),
 }))
 // 404 Not Found Middleware
