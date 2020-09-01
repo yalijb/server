@@ -23,7 +23,7 @@ app.enable('trust proxy');
 
 app.route(`/`)
     .get(function (request, response){
-    response.send(request.connection)
+    response.send("kk")
     
 });
 
@@ -31,7 +31,7 @@ app.route(`/ip`)
   .get(function(req, res){
     res.setHeader("x-Hello-World", "YG");
 
-    res.json({ipaddress: req.ip});
+    res.json({ipaddress: req.ip, conec: req.connection});
   });
 
 app.use(`/name`, greet({
