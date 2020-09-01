@@ -29,9 +29,10 @@ app.route(`/`)
 
 app.route(`/ip`)
   .get(function(req, res){
+  var os = require("os");
     res.setHeader("x-Hello-World", "YG");
 
-    res.json({ipaddress: req.ip, c:"d", conec: req.headers.host});
+    res.json({ipaddress: req.ip, c:"d", d: os.hostname});
   });
 
 app.use(`/name`, greet({
