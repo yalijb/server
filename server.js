@@ -31,7 +31,7 @@ app.route(`/ip`)
   .get(function(req, res){
     res.setHeader("x-Hello-World", "YG");
 
-    res.json({ipaddress: req.ip, conec: req.connection});
+    res.json({ipaddress: req.ip, conec: req.connection.remoteAddress});
   });
 
 app.use(`/name`, greet({
