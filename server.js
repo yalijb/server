@@ -32,7 +32,7 @@ app.route(`/ip`)
   var os = require("os");
     res.setHeader("x-Hello-World", "YG");
 
-    res.json({ipaddress: req.ip, c:"d", d: os.hostname});
+    res.json({ipaddress: req.ip, c:req.hostname, d: os.hostname});
   });
 
 app.use(`/name`, greet({
