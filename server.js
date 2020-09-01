@@ -23,7 +23,8 @@ app.enable('trust proxy');
 
 app.route(`/`)
     .get(function (request, response){
-    response.send('Hello world')
+    response.send(request.connection)
+    
 });
 
 app.route(`/ip`)
